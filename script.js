@@ -105,3 +105,47 @@ console.log(reverseWords("The quick brown fox"));
 //   // Test cases
 //   console.log(sumMultiplesOf3And5(10)); // 23 (3 + 5 + 6 + 9)
 //   console.log(sumMultiplesOf3And5(20)); // 78 (3 + 5 + 6 + 9 + 10 + 12 + 15 + 18)
+
+function sumMultiplesOf3And5(limit) {
+  let sum = 0;
+
+  for (let i = 1; i < limit; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
+console.log(sumMultiplesOf3And5(10)); 
+console.log(sumMultiplesOf3And5(20)); 
+
+// Implement a function that removes duplicates from an array without using built-in functions
+// or additional data structures.
+// function removeDuplicates(arr) {
+
+// // Implementation here
+// }
+// // Test cases
+// const originalArray = [1, 2, 2, 3, 4, 4, 5];
+// removeDuplicates(originalArray);
+// console.log(originalArray); // [1, 2, 3, 4, 5]
+
+function removeDuplicates(arr) {
+  const len = arr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = i + 1; j < len; j++) {
+      if (arr[i] === arr[j]) {
+        for (let k = j; k < len - 1; k++) {
+          arr[k] = arr[k + 1];
+        }
+        len--;
+        j--;
+      }
+    }
+  }
+}
+const originalArray = [1, 2, 2, 3, 4, 4, 5];
+removeDuplicates(originalArray);
+console.log(originalArray);
+
