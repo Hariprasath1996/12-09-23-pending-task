@@ -149,3 +149,62 @@ const originalArray = [1, 2, 2, 3, 4, 4, 5];
 removeDuplicates(originalArray);
 console.log(originalArray);
 
+// Implement a function to check if a given number is a perfect number (sum of its divisors
+// excluding itself equals the number).
+// function isPerfectNumber(num) {
+// // Implementation here
+// }
+// // Test cases
+// console.log(isPerfectNumber(6)); // true (1 + 2 + 3 = 6)
+// console.log(isPerfectNumber(28)); // true (1 + 2 + 4 + 7 + 14 = 28)
+// console.log(isPerfectNumber(12)); // false
+function isPerfectNumber(num) {
+  if (num <= 1) {
+    return false; 
+  }
+  let sumOfDivisors = 1; 
+  for (let i = 2; i * i <= num; i++) {
+    if (num % i === 0) {
+      sumOfDivisors += i;
+      if (i * i !== num) {
+        sumOfDivisors += num / i;
+      }
+    }
+  }
+
+  return sumOfDivisors === num;
+}
+console.log(isPerfectNumber(6)); 
+console.log(isPerfectNumber(28)); 
+console.log(isPerfectNumber(12)); 
+
+
+// 19. Create a function to find the intersection of two sorted arrays, allowing for duplicate
+// elements.
+// function intersectWithDuplicates(arr1, arr2) {
+// // Implementation here
+// }
+// // Test cases
+// console.log(intersectWithDuplicates([1, 2, 2, 3], [2, 2, 3, 4])); // [2, 2, 3]
+// console.log(intersectWithDuplicates([3, 4, 2, 1, 5], [1, 3, 2])); // [3, 2, 1]
+
+function intersectWithDuplicates(arr1, arr2) {
+  const result = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] === arr2[j]) {
+      result.push(arr1[i]);
+      i++;
+      j++;
+    } else if (arr1[i] < arr2[j]) {
+      i++;
+    } else {
+      j++;
+    }
+  }
+
+  return result;
+}
+console.log(intersectWithDuplicates([1, 2, 2, 3], [2, 2, 3, 4])); 
+console.log(intersectWithDuplicates([3, 4, 2, 1, 5], [1, 3, 2])); 
