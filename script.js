@@ -207,4 +207,4 @@ function intersectWithDuplicates(arr1, arr2) {
   return result;
 }
 console.log(intersectWithDuplicates([1, 2, 2, 3], [2, 2, 3, 4])); 
-console.log(intersectWithDuplicates([3, 4, 2, 1, 5], [1, 3, 2])); 
+console.log(intersectWithDuplicates([3, 4, 2, 1, 5], [1, 3, 2]));
